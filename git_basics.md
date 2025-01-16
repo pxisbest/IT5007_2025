@@ -12,7 +12,7 @@ after typing the terminal shows:
 Initialized empty Git repository in /Users/tian/Desktop/IT5007/.git/
 ```
 
-The instruction cretaed a file but you can not see it cuz the file is actually hidden.File with . will not show in the frontend.
+**The instruction cretaed a file but you can not see it cuz the file is actually hidden. File with . will not show in the frontend.**
 
 you can access the git folder using:
 
@@ -24,4 +24,14 @@ check the status of the file
 ```bash
 git status -s
 ```
+to commit:
+```bash
+git commit -m "First commit of notes on git"
+```
+show all the log of your file, the yellowgreen number is the version of the file comitted. 
+```bash
+git log
+```
+
+![alt text](image.png)
 
