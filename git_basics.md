@@ -1,4 +1,7 @@
 # some useful tips on using git
+
+git textbook for reference:https://git-scm.com/book/en/v2
+
 ## important instructions
 ### 1.Initializ empty Git repository:
 ```bash
