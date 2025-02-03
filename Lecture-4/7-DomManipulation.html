@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>IT5007 Website</title>
+        <link rel="stylesheet" href="it5007.css">
+        <script src="it5007.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let randomNumber = Math.floor(Math.random() * 100) + 1;
+                const guessedValue = document.querySelector(".guessField");
+                const lastResult = document.querySelector(".lastResult");
+                const lowOrHi = document.querySelector(".lowOrHi");
+                const guessSubmit = document.querySelector(".guessSubmit");
+                guessSubmit.addEventListener('click', checkguess);
+                function checkguess()
+                {   let guessedValueinNumber = Number(guessedValue.value);
+            
+                    if (guessedValueinNumber == randomNumber)
+                    {
+                        lastResult.textContent="Correct Guess!";
+                        lastResult.style.backgroundColor = 'green';
+                    }
+                    else
+                    {
+                        lastResult.textContent="Incorrect!";
+                        lastResult.style.backgroundColor = 'red';
+                        if(guessedValueinNumber < randomNumber)
+                        {
+                            lowOrHi.textContent = "Guess higher!";
+                        }
+                        else
+                        {
+                            lowOrHi.textContent = "Guess Lower!";
+                        }
+                    }
+                }
+            });
+        </script>
+
+    </head>
+    <body onload="newsfetch()">
+        <h1>IT5007 Website
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="">News</a></li>
+                <li><a href="">Images</a></li>
+                <li><a href="">Videos</a></li>
+            </ul>    
+        </nav>
+        <div id="container">
+            <div id="first">
+                
+                <div id="firsta" class="news">
+                    <table id="newstable">
+                        <thead>
+                            <tr><th>Old News</th></tr>
+                        </thead>
+                        <tbody>
+                   
+                        </tbody>
+                    </table>
+                </div>
+                <div id="firstb" class="news">
+                    <table>
+                        <thead>
+                            <tr><th>New News</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>News1</td></tr>
+                            <tr><td>News2</td></tr>
+                            <tr><td>News3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="second">
+                    <h2>Number guessing game</h2>
+
+                    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+                    <div class="form">
+                        <label for="guessField">Enter a guess: </label>
+                        <input type="text" id="guessField" class="guessField">
+                        <input type="submit" value="Submit guess" class="guessSubmit">
+                    </div>
+
+                    <div class="resultParas">
+                        <p class="guesses"></p>
+                        <p class="lastResult"></p>
+                        <p class="lowOrHi"></p>
+                    </div>
+
+            </div>
+            <div id="third">
+                
+                <div id="thirda" class="news">
+                    <table>
+                        <thead>
+                            <tr><th>World News</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>News1</td></tr>
+                            <tr><td>News2</td></tr>
+                            <tr><td>News3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="thirdb" class="news">
+                    <table>
+                        <thead>
+                            <tr><th>Local News</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>News1</td></tr>
+                            <tr><td>News2</td></tr>
+                            <tr><td>News3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
