@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
 
-    <title>Number guessing game</title>
+<head>
+  <meta charset="utf-8">
 
-    <style>
-      html {
-        font-family: sans-serif;
+  <title>Number guessing game</title>
+
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+
+    .lastResult {
+      color: white;
+      padding: 3px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      const guessedValue = document.querySelector(".guessField");
+      const lastResult = document.querySelector(".lastResult");
+      const lowOrHi = document.querySelector(".lowOrHi");
+      const guessSubmit = document.querySelector(".guessSubmit");
+      guessSubmit.addEventListener('click', checkguess);
+      function checkguess() {
+        let guessedValueinNumber = Number(guessedValue.value);
+
+        if (guessedValueinNumber == randomNumber) {
+          lastResult.textContent = "Correct Guess!";
+          lastResult.style.backgroundColor = 'green';
+        }
+        else {
+          lastResult.textContent = "Incorrect!";
+          lastResult.style.backgroundColor = 'red';
+          if (guessedValueinNumber < randomNumber) {
+            lowOrHi.textContent = "Guess higher!";
+          }
+          else {
+            lowOrHi.textContent = "Guess Lower!";
+          }
+        }
       }
+    });
+  </script>
+</head>
 
-      body {
-        width: 50%;
-        max-width: 800px;
-        min-width: 480px;
-        margin: 0 auto;
-      }
+<body>
+  <h1>Number guessing game</h1>
 
-      .lastResult {
-        color: white;
-        padding: 3px;
-      }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let randomNumber = Math.floor(Math.random() * 100) + 1;
-            const guessedValue = document.querySelector(".guessField");
-            const lastResult = document.querySelector(".lastResult");
-            const lowOrHi = document.querySelector(".lowOrHi");
-            const guessSubmit = document.querySelector(".guessSubmit");
-            guessSubmit.addEventListener('click', checkguess);
-            function checkguess()
-            {   let guessedValueinNumber = Number(guessedValue.value);
-        
-                if (guessedValueinNumber == randomNumber)
-                {
-                    lastResult.textContent="Correct Guess!";
-                    lastResult.style.backgroundColor = 'green';
-                }
-                else
-                {
-                    lastResult.textContent="Incorrect!";
-                    lastResult.style.backgroundColor = 'red';
-                    if(guessedValueinNumber < randomNumber)
-                    {
-                        lowOrHi.textContent = "Guess higher!";
-                    }
-                    else
-                    {
-                        lowOrHi.textContent = "Guess Lower!";
-                    }
-                }
-            }
-        });
-        </script>
-  </head>
+  <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if
+    your guess was too high or too low.</p>
 
-  <body>
-    <h1>Number guessing game</h1>
+  <div class="form">
+    <label for="guessField">Enter a guess: </label>
+    <!-- activate the input -->
+    <input type="text" id="guessField" class="guessField">
+    <input type="submit" value="Submit guess" class="guessSubmit">
+  </div>
 
-    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+  <div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+  </div>
 
-    <div class="form">
-      <label for="guessField">Enter a guess: </label>
-      <input type="text" id="guessField" class="guessField">
-      <input type="submit" value="Submit guess" class="guessSubmit">
-    </div>
 
-    <div class="resultParas">
-      <p class="guesses"></p>
-      <p class="lastResult"></p>
-      <p class="lowOrHi"></p>
-    </div>
 
-    
-  </body>
+</body>
+
 </html>
